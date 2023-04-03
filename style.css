@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.4%;
+
+    --background-gradient-blue: #190361;
+    --background-gradient-pink: #BB00FF;
+    --background-box-button-color: #FFF;
+    --background-button-color: #FF9500;
+    --box-shadow-color: #000000CC;
+    --title-subtitle-color: #34355B;
+    --box-text-color: #E4EDF1;
+    --box-text-shadow-color: #55555580;
+
+    
+    --title-font: 'Montserrat', sans-serif;
+    --subtitle-button-font: 'DM Sans', sans-serif;
+    --message-font: 'Dancing Script', cursive;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+    background: linear-gradient(45deg, var(--background-gradient-blue) 0%, var(--background-gradient-pink) 100%);
+}
+
+
+.fortune-cookie{
+    width: 42.8rem;
+    min-height: 42.4rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: var(--background-box-button-color);
+    border-radius: 0.5rem;
+    box-shadow: 0rem 2rem 5rem var(--box-shadow-color);
+
+    padding: 4.8rem 0;
+}
+
+.fortune-cookie-content{
+    width: 30rem;
+    min-height: 31.2rem;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    font-family: var(--title-font);
+    font-size: 2.4rem;
+    line-height: 29px;
+    text-align: center;
+    color: var(--title-subtitle-color);
+}
+
+h2{
+    margin-bottom: .4rem;
+    
+    font-family: var(--subtitle-button-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--title-subtitle-color);
+}
+
+.message{
+    width: 29.3rem;
+    min-height: 10.7rem;
+
+    background-color: var(--box-text-color);
+    box-shadow: .2rem .2rem .2rem var(--box-text-shadow-color);
+    
+    padding: 1rem;
+
+    animation: messageAnimation 500ms;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p{
+    font-family: var(--message-font);
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+button{
+    all: unset;
+
+    width: 17.4rem;
+    height: 5.2rem;
+
+    font-family: var(--subtitle-button-font);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--background-box-button-color);
+
+    background-color: var(--background-button-color);
+    border-radius: .4rem;
+
+    cursor: pointer;
+}
+
+@keyframes fortuneCookieClosed{
+    0%{
+        transform: rotate(0);
+        transform: translateY(0.15rem);
+    }
+    
+    25% {
+        transform: rotate(3deg);
+        transform: translateX(0.2rem); 
+    }
+    
+    50% {
+        transform: rotate(0);
+        transform: translateY(-0.15rem);
+        transform: translateX(-0.3rem);
+    }
+    
+    75% {
+        transform: rotate(-3deg); 
+    }
+}
+
+@keyframes fortuneCookieOpened {
+    0%{
+        opacity: 0;
+    }
+    
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes messageAnimation {
+    0%{
+        opacity: 0;
+        transform: translateY(12rem) scale(0.25, 0.25);
+    }
+}
+
+.fortuneCookieClosed:hover{
+    cursor: pointer;
+
+    animation: fortuneCookieClosed 200ms infinite;    
+}
+
+.fortuneCookieOpened{
+    animation: fortuneCookieOpened 300ms;
+}
+
+.hide{
+    display: none;
+}
